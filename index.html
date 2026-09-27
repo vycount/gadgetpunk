@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GadgetPunk</title>
+<meta name="description" content="GadgetPunk: tech reviews, news, teardowns, a podcast and a store. Launching soon from Owerri, Nigeria.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GadgetPunk">
+<meta property="og:description" content="GadgetPunk: tech reviews, news, teardowns, a podcast and a store. Launching soon from Owerri, Nigeria.">
+<meta property="og:url" content="https://gadgetpunk.co">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0E11" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111418'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='26' fill='%23D8A557'%3EGP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    color-scheme: light;
+
+    --bg:           #FFFFFF;
+    --stage:        #F1F3F5;
+    --ink:          #111418;
+    --ink-2:        #474E57;
+    --muted:        #6E7680;
+    --line:         #E3E6EA;
+    --line-2:       #CDD2D8;
+    --accent:       #8F5D12;
+    --accent-ink:   #7A4F0F;
+    --accent-bg:    #F6EEE0;
+    --nav-bg:       rgba(255, 255, 255, 0.88);
+
+    --screen:        #0F1216;
+    --screen-2:      #1C2229;
+    --screen-ink:    #F1F3F5;
+    --screen-ink-2:  #C4CAD1;
+    --screen-muted:  #8C949E;
+    --screen-accent: #D8A557;
+    --screen-edge:   #262C33;
+
+    --dv-back:     #1B1F24;
+    --dv-cell:     #3A414A;
+    --dv-label:    #AEB5BD;
+    --dv-board:    #262B31;
+    --dv-chip:     #14171B;
+    --dv-pad:      #C8943F;
+    --dv-frame:    #7F8791;
+    --dv-glass:    #0B0D10;
+    --dv-glass-hi: #2E353E;
+    --dv-edge:     #3A414A;
+    --dv-shadow:   rgba(17, 20, 24, 0.20);
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body:    "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg:           #0C0E11;
+      --stage:        #151920;
+      --ink:          #ECEEF1;
+      --ink-2:        #B6BDC5;
+      --muted:        #8B939D;
+      --line:         #20252C;
+      --line-2:       #2E343C;
+      --accent:       #D8A557;
+      --accent-ink:   #E4B874;
+      --accent-bg:    #231B10;
+      --nav-bg:       rgba(12, 14, 17, 0.86);
+
+      --screen:        #07090B;
+      --screen-2:      #151A20;
+      --screen-edge:   #252B32;
+
+      --dv-back:     #2A3038;
+      --dv-cell:     #454D57;
+      --dv-label:    #C3C9CF;
+      --dv-board:    #333A43;
+      --dv-chip:     #1A1E23;
+      --dv-pad:      #D8A557;
+      --dv-frame:    #8A929C;
+      --dv-glass:    #111418;
+      --dv-glass-hi: #3A424C;
+      --dv-edge:     #4A525C;
+      --dv-shadow:   rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:           #0C0E11;
+    --stage:        #151920;
+    --ink:          #ECEEF1;
+    --ink-2:        #B6BDC5;
+    --muted:        #8B939D;
+    --line:         #20252C;
+    --line-2:       #2E343C;
+    --accent:       #D8A557;
+    --accent-ink:   #E4B874;
+    --accent-bg:    #231B10;
+    --nav-bg:       rgba(12, 14, 17, 0.86);
+
+    --screen:        #07090B;
+    --screen-2:      #151A20;
+    --screen-edge:   #252B32;
+
+    --dv-back:     #2A3038;
+    --dv-cell:     #454D57;
+    --dv-label:    #C3C9CF;
+    --dv-board:    #333A43;
+    --dv-chip:     #1A1E23;
+    --dv-pad:      #D8A557;
+    --dv-frame:    #8A929C;
+    --dv-glass:    #111418;
+    --dv-glass-hi: #3A424C;
+    --dv-edge:     #4A525C;
+    --dv-shadow:   rgba(0, 0, 0, 0.55);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  section[id] { scroll-margin-top: 110px; }
+
+  /* ---------- navigation ---------- */
+
+  .nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: var(--nav-bg);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 28px;
+  }
+
+  .mark {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .mark span { color: var(--accent); }
+
+  .links {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .links::-webkit-scrollbar { display: none; }
+
+  .links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-block: 4px;
+  }
+
+  .links a:hover { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .links { flex-basis: 100%; gap: 20px; }
+  }
+
+  /* ---------- page ---------- */
+
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 8px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+  }
+
+  @media (max-width: 720px) {
+    .page { gap: 72px; }
+  }
+
+  .label {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 8px;
+  }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(1.65rem, 3.4vw, 2.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin: 0;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex: none;
+  }
+
+  .sec-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 16px 40px;
+    padding-top: 40px;
+  }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding-top: 28px; }
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .pill {
+    align-self: flex-start;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    padding: 6px 13px;
+  }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6.2vw, 4.3rem);
+    line-height: 0.98;
+    letter-spacing: -0.038em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .lede {
+    max-width: 52ch;
+    font-size: 1.08rem;
+    color: var(--ink-2);
+    margin: 0;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 4px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--f-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 1px solid var(--ink);
+    transition: opacity 0.15s ease;
+  }
+
+  .btn:hover { opacity: 0.86; }
+
+  .btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line-2);
+  }
+
+  /* ---------- exploded device ---------- */
+
+  .art {
+    position: relative;
+    height: 420px;
+    display: grid;
+    place-items: center;
+    perspective: 1600px;
+    overflow: hidden;
+    overflow: clip;
+  }
+
+  .device {
+    position: relative;
+    width: 136px;
+    height: 280px;
+    transform-style: preserve-3d;
+    transform: translate(-36px, 52px) rotateX(56deg) rotateZ(-40deg);
+  }
+
+  .layer {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    transform-style: preserve-3d;
+    transform: translateZ(calc(var(--i) * 46px));
+    animation: explode 1.6s cubic-bezier(0.16, 0.84, 0.24, 1) 0.3s both;
+  }
+
+  @keyframes explode {
+    from { transform: translateZ(calc(var(--i) * 4px)); }
+    to   { transform: translateZ(calc(var(--i) * 46px)); }
+  }
+
+  .shadow {
+    position: absolute;
+    inset: 10px;
+    border-radius: 30px;
+    background: var(--dv-shadow);
+    filter: blur(18px);
+    transform: translateZ(-16px);
+  }
+
+  .l-back {
+    background: var(--dv-back);
+    border: 1px solid var(--dv-edge);
+  }
+
+  .cam {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid var(--dv-edge);
+    background:
+      radial-gradient(circle at 31% 31%, var(--dv-glass) 0 8px, var(--dv-edge) 8px 9px, transparent 9.5px),
+      radial-gradient(circle at 69% 69%, var(--dv-glass) 0 8px, var(--dv-edge) 8px 9px, transparent 9.5px),
+      var(--dv-back);
+  }
+
+  .cell {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: 118px;
+    bottom: 20px;
+    border-radius: 8px;
+    background: var(--dv-cell);
+    border: 1px solid var(--dv-edge);
+    display: grid;
+    place-items: center;
+    font-family: var(--f-mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--dv-label);
+  }
+
+  .pcb {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    height: 98px;
+    border-radius: 10px;
+    background: var(--dv-board);
+    border: 1px solid var(--dv-edge);
+  }
+
+  .chip {
+    position: absolute;
+    background: var(--dv-chip);
+    border: 1px solid var(--dv-pad);
+    border-radius: 3px;
+  }
+
+  .c1 { left: 14px; top: 16px; width: 34px; height: 34px; }
+  .c2 { left: 58px; top: 16px; width: 26px; height: 18px; }
+  .c3 { left: 58px; top: 42px; width: 38px; height: 12px; }
+
+  .pads {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    height: 8px;
+    background: repeating-linear-gradient(90deg, var(--dv-pad) 0 3px, transparent 3px 7px);
+  }
+
+  .l-frame {
+    border: 6px solid var(--dv-frame);
+    background: transparent;
+  }
+
+  .l-glass {
+    background: linear-gradient(140deg, var(--dv-glass-hi) 0%, var(--dv-glass) 38%, var(--dv-glass) 72%, var(--dv-glass-hi) 100%);
+    border: 1px solid var(--dv-edge);
+  }
+
+  .l-glass::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    margin-left: -4.5px;
+    border-radius: 50%;
+    background: var(--dv-chip);
+    box-shadow: 0 0 0 1px var(--dv-edge);
+  }
+
+  .tag {
+    position: absolute;
+    left: 100%;
+    top: calc(100% - 7px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    transform-origin: 0 50%;
+    transform: rotateZ(40deg) rotateX(-56deg);
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .tag::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--line-2);
+  }
+
+  @media (max-width: 520px) {
+    .art { height: 320px; }
+    .device { transform: translate(0, 40px) scale(0.78) rotateX(56deg) rotateZ(-40deg); }
+    .tag { display: none; }
+  }
+
+  /* ---------- video formats ---------- */
+
+  .formats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  @media (max-width: 960px) {
+    .formats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 520px) {
+    .formats { grid-template-columns: 1fr; }
+  }
+
+  .format {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .format p {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 0.95rem;
+  }
+
+  .screen {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+    border-radius: 8px;
+    background: radial-gradient(120% 90% at 85% 8%, var(--screen-2) 0%, var(--screen) 62%);
+    border: 1px solid var(--screen-edge);
+    overflow: hidden;
+    color: var(--screen-ink);
+  }
+
+  .glyph {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 22px;
+    height: 22px;
+    color: var(--screen-accent);
+  }
+
+  .bug {
+    position: absolute;
+    top: 15px;
+    right: 14px;
+    font-family: var(--f-mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--screen-muted);
+  }
+
+  .screen-title {
+    position: absolute;
+    left: 14px;
+    bottom: 11px;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* ---------- news + podcast ---------- */
+
+  .duo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  @media (max-width: 860px) {
+    .duo { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    position: relative;
+    border-radius: 10px;
+    padding: clamp(24px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .panel p { margin: 0; }
+
+  .panel .status { margin-top: auto; padding-top: 10px; }
+
+  .news {
+    border: 1px solid var(--line);
+    background: var(--bg);
+  }
+
+  .news .body { color: var(--ink-2); max-width: 48ch; }
+
+  .podcast {
+    background: radial-gradient(110% 100% at 100% 0%, var(--screen-2) 0%, var(--screen) 60%);
+    border: 1px solid var(--screen-edge);
+    color: var(--screen-ink);
+  }
+
+  .podcast .label { color: var(--screen-accent); }
+  .podcast .body { color: var(--screen-ink-2); max-width: 48ch; }
+  .podcast .status { color: var(--screen-ink-2); }
+
+  .platforms {
+    font-family: var(--f-mono);
+    font-size: 0.78rem;
+    color: var(--screen-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .onair {
+    position: absolute;
+    top: clamp(24px, 4vw, 36px);
+    right: clamp(24px, 4vw, 36px);
+    font-family: var(--f-mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--screen-muted);
+    border: 1px solid var(--screen-edge);
+    border-radius: 4px;
+    padding: 5px 9px;
+  }
+
+  /* ---------- store ---------- */
+
+  .shelf {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  @media (max-width: 760px) {
+    .shelf { grid-template-columns: 1fr; }
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .item p {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 0.95rem;
+  }
+
+  .stage {
+    aspect-ratio: 4 / 3;
+    max-width: 100%;
+    border-radius: 10px;
+    background: var(--stage);
+    display: grid;
+    place-items: center;
+    color: var(--ink-2);
+    margin-bottom: 4px;
+  }
+
+  .stage svg { width: 48%; height: auto; }
+
+  /* ---------- repairs ---------- */
+
+  .repairs-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px 48px;
+    align-items: start;
+  }
+
+  @media (max-width: 860px) {
+    .repairs-body { grid-template-columns: 1fr; }
+  }
+
+  .repairs-lede {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    max-width: 50ch;
+  }
+
+  .repairs-side {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .services li {
+    font-family: var(--f-mono);
+    font-size: 0.78rem;
+    color: var(--ink-2);
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    padding: 6px 13px;
+  }
+
+  .textlink {
+    align-self: flex-start;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--accent-ink);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+
+  /* ---------- contact ---------- */
+
+  .contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 860px) {
+    .contact { grid-template-columns: 1fr; }
+  }
+
+  .contact-main {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .addr-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background: var(--stage);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 6px;
+  }
+
+  #addr {
+    font-family: var(--f-mono);
+    font-size: clamp(0.95rem, 3.4vw, 1.15rem);
+    font-weight: 500;
+    color: var(--ink);
+    user-select: all;
+    word-break: break-all;
+  }
+
+  #copy {
+    font-family: var(--f-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bg);
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-left: auto;
+    transition: opacity 0.15s ease;
+  }
+
+  #copy:hover { opacity: 0.86; }
+
+  #copy[data-done="1"] {
+    background: var(--accent-bg);
+    border-color: var(--accent-bg);
+    color: var(--accent-ink);
+  }
+
+  .note {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--muted);
+    max-width: 52ch;
+  }
+
+  .handles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .handles div {
+    background: var(--bg);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .plat {
+    font-family: var(--f-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .handle {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 0.97rem;
+    color: var(--ink);
+  }
+
+  /* ---------- footer ---------- */
+
+  .foot {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 22px 36px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 24px;
+    font-family: var(--f-mono);
+    font-size: 0.71rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .foot .mark { font-size: 0.95rem; }
+
+  :where(a, button):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+<style>body { margin: 0; } img { max-width: 100%; }</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a class="mark" href="#top">GADGET<span>PUNK</span></a>
+    <div class="links">
+      <a href="#videos">Videos</a>
+      <a href="#news">News</a>
+      <a href="#podcast">Podcast</a>
+      <a href="#store">Store</a>
+      <a href="#repairs">Repairs</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="status pill"><span class="dot"></span>Launching soon</p>
+      <h1>Reviews, news, teardowns and a store.</h1>
+      <p class="lede">We test the gadgets worth talking about, report on the tech that's coming next, open devices up to show how they work, and sell the gear we'd use ourselves. Built in Owerri, Nigeria.</p>
+      <div class="actions">
+        <a class="btn" href="#videos">See what's coming</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="art" aria-hidden="true">
+      <div class="device">
+        <div class="shadow"></div>
+        <div class="layer l-back" style="--i: 0">
+          <div class="cam"></div>
+          <span class="tag">Back glass</span>
+        </div>
+        <div class="layer" style="--i: 1">
+          <div class="cell">4,500 mAh</div>
+          <span class="tag">Battery</span>
+        </div>
+        <div class="layer" style="--i: 2">
+          <div class="pcb">
+            <span class="chip c1"></span>
+            <span class="chip c2"></span>
+            <span class="chip c3"></span>
+            <span class="pads"></span>
+          </div>
+          <span class="tag">Logic board</span>
+        </div>
+        <div class="layer l-frame" style="--i: 3">
+          <span class="tag">Midframe</span>
+        </div>
+        <div class="layer l-glass" style="--i: 4">
+          <span class="tag">Display</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <header class="sec-head">
+      <div>
+        <p class="label">Videos</p>
+        <h2>On the channel</h2>
+      </div>
+      <p class="status"><span class="dot"></span>Channel launching soon</p>
+    </header>
+
+    <div class="formats">
+      <article class="format">
+        <div class="screen">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg>
+          <span class="bug">GP</span>
+          <span class="screen-title">Reviews</span>
+        </div>
+        <p>Full reviews of phones, laptops, audio and the rest, ending in a clear verdict.</p>
+      </article>
+
+      <article class="format">
+        <div class="screen">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="bug">GP</span>
+          <span class="screen-title">First looks</span>
+        </div>
+        <p>Hands-on time with new and unreleased tech, and whether the hype holds up.</p>
+      </article>
+
+      <article class="format">
+        <div class="screen">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v9M7.5 12h9"/></svg>
+          <span class="bug">GP</span>
+          <span class="screen-title">Teardowns</span>
+        </div>
+        <p>Devices opened up to show how they're built and what's likely to fail first.</p>
+      </article>
+
+      <article class="format">
+        <div class="screen">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+          <span class="bug">GP</span>
+          <span class="screen-title">Tips</span>
+        </div>
+        <p>Settings and habits that get more out of the gadgets you already own.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="duo">
+    <section id="news" class="panel news">
+      <p class="label">News</p>
+      <h2>Launches, leaks and what they mean</h2>
+      <p class="body">Short, plain reports on what's happening in tech, and what each story means for the next thing you buy.</p>
+      <p class="status"><span class="dot"></span>Starts with the channel</p>
+    </section>
+
+    <section id="podcast" class="panel podcast">
+      <span class="onair">On air</span>
+      <p class="label">Podcast</p>
+      <h2>Long-form tech talk</h2>
+      <p class="body">Conversations about tech news, new launches and the arguments around them.</p>
+      <p class="platforms">YouTube · Spotify · Apple Podcasts</p>
+      <p class="status"><span class="dot"></span>Off air · First episode soon</p>
+    </section>
+  </div>
+
+  <section id="store">
+    <header class="sec-head">
+      <div>
+        <p class="label">Store</p>
+        <h2>Devices, accessories and our own gear</h2>
+      </div>
+      <p class="status"><span class="dot"></span>Opening soon</p>
+    </header>
+
+    <div class="shelf">
+      <article class="item">
+        <div class="stage">
+          <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="34" y="14" width="62" height="40" rx="3"/>
+            <path d="M26 60h78l-4 6H30z"/>
+            <rect x="14" y="26" width="22" height="42" rx="4" style="fill: var(--stage)"/>
+            <path d="M22 30h6"/>
+          </svg>
+        </div>
+        <h3>Devices</h3>
+        <p>Phones, laptops, audio and wearables from the brands we cover.</p>
+      </article>
+
+      <article class="item">
+        <div class="stage">
+          <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="16" y="24" width="30" height="36" rx="5"/>
+            <path d="M24 24v-8M38 24v-8"/>
+            <path d="M46 44c14 0 12-18 26-18s14 28 26 28"/>
+            <rect x="98" y="48" width="12" height="12" rx="3"/>
+          </svg>
+        </div>
+        <h3>Accessories</h3>
+        <p>Cases, chargers, cables and the small things that make a device better to live with.</p>
+      </article>
+
+      <article class="item">
+        <div class="stage">
+          <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M44 10L32 14 20 26l8 10 8-6v42h48V30l8 6 8-10-12-12-12-4c-3 6-9 9-16 9s-13-3-16-9z"/>
+            <text x="60" y="47" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" font-weight="500" stroke="none" fill="currentColor">GP</text>
+          </svg>
+        </div>
+        <h3>GadgetPunk gear</h3>
+        <p>Our own designs, coming after the store opens.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="repairs">
+    <header class="sec-head">
+      <div>
+        <p class="label">Repairs</p>
+        <h2>The workshop</h2>
+      </div>
+      <p class="status"><span class="dot"></span>Enquiries by email</p>
+    </header>
+
+    <div class="repairs-body">
+      <p class="repairs-lede">Phones, laptops, consoles and more, repaired in Owerri. When a repair shows something useful about how devices are built, we film it for the channel, with the owner's permission.</p>
+      <div class="repairs-side">
+        <ul class="services">
+          <li>Screens</li>
+          <li>Batteries</li>
+          <li>Charging ports</li>
+          <li>Board-level micro-soldering</li>
+          <li>Liquid damage</li>
+          <li>Data recovery</li>
+        </ul>
+        <a class="textlink" href="#contact">Email us the model and the fault</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="contact-main">
+      <p class="label">Contact</p>
+      <h2>Get in touch</h2>
+      <div class="addr-row">
+        <span id="addr">hello@gadgetpunk.co</span>
+        <button id="copy" type="button">Copy</button>
+      </div>
+      <p class="note">For repairs, send the device model and what went wrong. For press and partnerships, tell us what you have in mind.</p>
+    </div>
+
+    <div>
+      <p class="label">Follow</p>
+      <div class="handles">
+        <div><span class="plat">YouTube</span><span class="handle">@gadgetpunkhq</span></div>
+        <div><span class="plat">Instagram</span><span class="handle">@gadgetpunkhq</span></div>
+        <div><span class="plat">TikTok</span><span class="handle">@gadgetpunkhq</span></div>
+        <div><span class="plat">X</span><span class="handle">@gadgetpunkhq</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span class="mark">GADGET<span>PUNK</span></span>
+  <span>gadgetpunk.co · Owerri, Nigeria</span>
+  <span>© 2026 GadgetPunk</span>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById("copy");
+    var addr = document.getElementById("addr");
+    if (!btn || !addr) return;
+
+    function flash(label) {
+      btn.textContent = label;
+      btn.setAttribute("data-done", "1");
+      setTimeout(function () {
+        btn.textContent = "Copy";
+        btn.removeAttribute("data-done");
+      }, 2000);
+    }
+
+    function selectAddr() {
+      try {
+        var range = document.createRange();
+        range.selectNodeContents(addr);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        flash("Selected");
+      } catch (e) {
+        flash("Select it");
+      }
+    }
+
+    btn.addEventListener("click", function () {
+      var text = addr.textContent.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          flash("Copied");
+        }, selectAddr);
+      } else {
+        selectAddr();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
