@@ -654,6 +654,7 @@
   }
 
 </style>
+<link rel="stylesheet" href="/assets/gp-v2.css">
 <noscript><style>.top.is-mark .gpl-move, .top.is-mark .gpl-l { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body id="top">
@@ -691,7 +692,8 @@
       <svg class="gpl gpl-hdr gpl-slide brand-word is-anim" viewBox="-39.76 -129.44 937.58 135.08" aria-hidden="true" focusable="false"><mask id="gpm-hw" maskUnits="userSpaceOnUse" x="-300" y="-300" width="700" height="600"><path class="gpl-arc" d="M142.48 -68.4A100 100 0 1 0 -31.43 24.07" pathLength="1" fill="none" stroke="#fff" stroke-width="200"/></mask><g class="gpl-move"><g mask="url(#gpm-hw)"><use class="gpl-plume" href="#gp-plume"/></g><use class="gpl-g" href="#gp-g"/><g clip-path="url(#gp-out)"><use class="gpl-l" href="#gp-l-a" style="--o:0s;--c:0.49s"/><use class="gpl-l" href="#gp-l-d" style="--o:0.07s;--c:0.435s"/><use class="gpl-l" href="#gp-l-g" style="--o:0.14s;--c:0.38s"/><use class="gpl-l" href="#gp-l-e" style="--o:0.21s;--c:0.325s"/><use class="gpl-l" href="#gp-l-t" style="--o:0.28s;--c:0.27s"/><use class="gpl-l gpl-red" href="#gp-l-p" style="--o:0.41s;--c:0.165s"/><use class="gpl-l gpl-red" href="#gp-l-u" style="--o:0.48s;--c:0.11s"/><use class="gpl-l gpl-red" href="#gp-l-n" style="--o:0.55s;--c:0.055s"/><use class="gpl-l gpl-red" href="#gp-l-k" style="--o:0.62s;--c:0s"/></g></g></svg>
     </a>
     <nav class="nav nav-r" aria-label="News and contact">
-      <a href="#news">News</a>
+      <a href="/news/">News</a>
+      <a href="/locations/">Locations</a>
       <a href="#contact">Contact</a>
       <span class="pill"><span class="dot"></span>Launching soon</span>
     </nav>
@@ -713,7 +715,8 @@
       <a href="#repairs">Repairs</a>
       <a href="#media">Videos</a>
       <a href="#podcast">Podcast</a>
-      <a href="#news">News</a>
+      <a href="/news/">News</a>
+      <a href="/locations/">Locations</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="drawer-socials">
@@ -738,7 +741,10 @@
         <h2 class="wide door-title">Buy it right</h2>
         <p class="door-text">Phones, laptops, audio and wearables from the brands we cover.</p>
         <div class="door-row">
-          <a class="btn" href="mailto:hello@gadgetpunk.co?subject=Store%20enquiry">Shop devices</a>
+          <div class="btn-row">
+            <a class="btn" href="mailto:hello@gadgetpunk.co?subject=Store%20enquiry">Shop devices</a>
+            <a class="btn ghost" href="/studio/">Try cases in 3D</a>
+          </div>
           <span class="status"><span class="dot"></span>Opening soon</span>
         </div>
       </div>
@@ -1004,8 +1010,11 @@
         <h2 class="wide door-title">Fix it today</h2>
         <p class="door-text">Phones, laptops, consoles and more, repaired in Abuja, with Owerri and Calabar next.</p>
         <div class="door-row">
-          <a class="btn white" href="mailto:hello@gadgetpunk.co?subject=Repair%20booking">Book a repair</a>
-          <span class="status"><span class="dot"></span>Enquiries by email</span>
+          <div class="btn-row">
+            <a class="btn white" href="/repair/">Book a repair</a>
+            <a class="btn ghost-w" href="/repair/">What's wrong with it?</a>
+          </div>
+          <a class="status" href="/locations/" style="text-decoration:none"><span class="dot"></span>3 branches · Find yours</a>
         </div>
       </div>
     </article>
@@ -1033,8 +1042,15 @@
     <article class="card news" id="news">
       <p class="label">News</p>
       <h2 class="card-title">Launches, leaks and what they mean</h2>
-      <p class="body">Short, plain reports on what's happening in tech, and what each story means for the next thing you buy.</p>
-      <p class="status"><span class="dot"></span>Starts with the channel</p>
+      <ul class="nl">
+        <li><a href="/news/#iphone-18-pro-nigeria"><span class="tag">In Nigeria</span><span class="h">iPhone 18 Pro is in Nigeria, from ₦2.27 million</span><span class="t">30 Sep</span></a></li>
+        <li><a href="/news/#xiaomi-18-pro"><span class="tag">Launch</span><span class="h">Xiaomi 18 Pro and 18 Pro Max launch globally today</span><span class="t">17 Nov</span></a></li>
+        <li><a href="/news/#iqoo-16"><span class="tag grey">Rumour</span><span class="h">iQOO 16 is confirmed. The 9,000mAh battery is still a rumour</span><span class="t">3 Nov</span></a></li>
+      </ul>
+      <div class="door-row" style="margin-top:auto; padding-top: 8px">
+        <a class="btn" href="/news/">All news</a>
+        <p class="status"><span class="dot"></span>Updated daily</p>
+      </div>
     </article>
     <article class="card podcast" id="podcast">
       <p class="label">Podcast</p>
@@ -1044,19 +1060,35 @@
     </article>
   </div>
 
-  <section class="wrap shop-sec" aria-labelledby="workshop-title">
+  <section class="wrap shop-sec" aria-labelledby="find-title">
+    <div class="branches">
+      <div class="workshop-copy">
+        <h2 class="wide workshop-title" id="find-title">Find us</h2>
+        <p>Walk in, book a slot, or send it in by rider. Nearest branch first.</p>
+        <div class="btn-row" style="margin-top: 8px"><a class="btn" href="/locations/">All locations</a></div>
+      </div>
+      <ul class="br-list">
+        <li class="br"><div><p class="br-city">Abuja</p><p class="br-sub">Headquarters · Wuse 2</p></div><div class="br-mid"><p class="status st-open"><span class="dot"></span>Mon–Sat 9am – 7pm</p><p class="br-sub">Store · Repairs · Board-level</p></div><a class="go" href="/locations/">Directions →</a></li>
+        <li class="br"><div><p class="br-city">Owerri</p><p class="br-sub">Branch</p></div><div class="br-mid"><p class="status"><span class="dot"></span>Opening early 2027</p><p class="br-sub">Store · Repairs</p></div><a class="go" href="/locations/">Notify me →</a></li>
+        <li class="br"><div><p class="br-city">Calabar</p><p class="br-sub">Branch</p></div><div class="br-mid"><p class="status"><span class="dot"></span>Opening mid 2027</p><p class="br-sub">Store · Repairs</p></div><a class="go" href="/locations/">Notify me →</a></li>
+        <li class="br"><div><p class="br-city" style="font-size: clamp(1.05rem, 1.2vw, 1.35rem)">No branch near you?</p></div><div class="br-mid"><p class="br-sub">Rider pickup in Abuja, mail-in from anywhere in Nigeria.</p></div><a class="go" href="/repair/">Send it in →</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap shop-sec" aria-labelledby="workshop-title" style="padding-top: 0">
     <div class="workshop">
       <div class="workshop-copy">
         <h2 class="wide workshop-title" id="workshop-title">The workshop</h2>
         <p>When a repair shows something useful about how devices are built, we film it for the channel, with the owner's permission.</p>
       </div>
       <ul class="services">
-        <li><a href="mailto:hello@gadgetpunk.co?subject=Repair%3A%20Screen">Screens <span aria-hidden="true">→</span></a></li>
-        <li><a href="mailto:hello@gadgetpunk.co?subject=Repair%3A%20Battery">Batteries <span aria-hidden="true">→</span></a></li>
-        <li><a href="mailto:hello@gadgetpunk.co?subject=Repair%3A%20Charging%20port">Charging ports <span aria-hidden="true">→</span></a></li>
-        <li><a href="mailto:hello@gadgetpunk.co?subject=Repair%3A%20Micro-soldering">Board-level micro-soldering <span aria-hidden="true">→</span></a></li>
-        <li><a href="mailto:hello@gadgetpunk.co?subject=Repair%3A%20Liquid%20damage">Liquid damage <span aria-hidden="true">→</span></a></li>
-        <li><a href="mailto:hello@gadgetpunk.co?subject=Repair%3A%20Data%20recovery">Data recovery <span aria-hidden="true">→</span></a></li>
+        <li><a href="/repair/?issue=screen">Screens <span aria-hidden="true">→</span></a></li>
+        <li><a href="/repair/?issue=battery">Batteries <span aria-hidden="true">→</span></a></li>
+        <li><a href="/repair/?issue=charge">Charging ports <span aria-hidden="true">→</span></a></li>
+        <li><a href="/repair/?issue=other">Board-level micro-soldering <span aria-hidden="true">→</span></a></li>
+        <li><a href="/repair/?issue=water">Liquid damage <span aria-hidden="true">→</span></a></li>
+        <li><a href="/repair/?issue=other">Data recovery <span aria-hidden="true">→</span></a></li>
       </ul>
     </div>
   </section>
@@ -1067,6 +1099,8 @@
   <span><a href="mailto:hello@gadgetpunk.co">hello@gadgetpunk.co</a> · Abuja, Nigeria</span>
   <span>@gadgetpunkhq</span>
 </footer>
+
+<a class="fab" href="/repair/" aria-label="Ask the GadgetPunk assistant"><span class="fab-ic"><svg viewBox="-39.76 -129.44 135.08 135.08" aria-hidden="true" focusable="false"><use href="#gp-plume" style="fill:#E31E2D"/><use href="#gp-g" style="fill:#111418"/></svg></span><span class="lbl">Ask GadgetPunk</span><span class="dot"></span></a>
 
 <script>
   (function () {
